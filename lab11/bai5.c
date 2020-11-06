@@ -1,113 +1,91 @@
 #include <stdio.h>
-#include <stdbool.h>
-main()
+void main ()
 {
-	menu();
-    int key, ch;
-	int a , b;
-	bool Dn = false;
-	while (true){
-	menu (&ch);
-	switch (ch)
-	{
-		case 1:{
-            printf("hay nhap so a:");
-    		scanf("%d", &a);
-    		printf("hay nhap so b:");
-    		scanf("%d", &b);
-    		printf("Nhap thanh cong");
-    		Dn = true;
-            getch();
-            break;}
-        case 2:
-            if(Dn){
-                printf("Ban chon tinh tong.");
-                sum(a,b);
-                getch();
-                break;}
-            else{
-                printf("Xin hay nhap so truoc!");
-                break;}
-        case 3:
-            if(Dn){
-                printf("Ban chon tinh hieu.");
-                sub(a,b);
-                getch();
-                break;}
-            else{
-                printf("Xin hay nhap so truoc!");
-                break;}
-        case 4:
-            if(Dn){
-                printf("Ban chon tinh tich.");
-                multi(a,b);
-                getch();
-                break;}
-            else{
-                printf("Xin hay nhap so truoc!");
-                break;}
-        case 5:
-            if(Dn){
-                printf("Ban chon tinh thuong.");
-                div(a,b);
-                getch();
-                break;}
-            else{
-                printf("Xin hay nhap so truoc!");
-                break;}
-        case 6:
-            printf ("Chuong trinh ket thuc");
-		    return 0;
-		    break;
-        default:
-        	printf("\nKhong co chuc nang nay!");
-            printf("\nBam phim bat ky de tiep tuc!");
-            getch();
-            break;
-    } 
-}
-    
-}
-void menu(int *ch)
-{
-	
-	printf ("TINH TOAN\n");
-	printf ("==================\n");
-	printf ("1. Nhap so\n2. Tinh tong\n3. Tinh hieu\n4. Tinh tich\n5. Tinh thuong\n6.Thoat\n");
-    printf ("==================\n");   
-    printf ("Chon:");
-    scanf ("%d", &ch);
-}
-int sum (int a, int b)
-{
-	int sum;
-	sum = a+b;
-	printf ("Tong 2 so la: %d + %d = %d", a, b, sum);
-	return (sum);
-}
-int sub (int a, int b)
-{
-	int sub;
-	sub = a - b;
-	printf ("Hieu 2 so la: %d - %d = %d", a, b, sub);
-	return (sub);
-}
-int multi(int a, int b)
-{
-	int multi;
-	multi = a * b;
-	printf ("Tich 2 so la: %d * %d = %d", a, b, multi);
-	return (multi);
-}
-int div (int a, int b)
-{
-	float div;
-	if (b!= 0)
-	{
-		div = a / b;
-		printf ("Thuong 2 so la: %d / %d = %f ", a, b, div);
-		return (div);
+		menu();
+		int tong, hieu, tich, thuong;
+		int x, y;
+				printf ("Nhap vao x: ");
+	         	scanf ("%d", &x);
+	         	printf ("Nhap vao y:");
+	         	scanf ("%d", &y);
+			    
+			
+		int chucNang;
+			printf ("Chon chuc nang ban muon: ");
+	        scanf ("%d", &chucNang);
+			switch (chucNang)
+	    {
+	    
+			case 1:
+			{
+				tong =  sum (x, y);
+				break;
+			}
+			case 2: 
+			{
+			   hieu =  sub (x, y);
+				break;
+			}
+			case 3:   
+			{
+				tich =  multi (x, y);
+				break;
+			}  		
+			case 4:
+			{
+				 thuong =  div (x, y);
+				break;
+			}
+			case 5: 
+			{
+				printf ("Chuong trinh ket thuc");
+				break;
+		   }
+			default:
+			{
+				printf ("Khong hop le!");
+			}
+		}
 	}
-	else 
-	   printf ("Khong hop le!!!");
-}
+	menu()
+	{
+	    printf ("===============");
+		printf ("\nMENU");
+		printf ("\n1.Tinh tong\n2.Tinh hieu\n3.Tinh tich\n4.Tinh thuong\n5.Thoat\n");
+		printf ("===============\n");
+	}
+	int sum (int num1, int num2)
+	{
+		int sum;
+		sum = num1 + num2;
+		printf ("Tong la: %d", sum);
+		return (sum);
+	}
+	int sub (int num1, int num2)
+	{
+		int sub;
+		sub = num1 - num2;
+		printf ("Hieu la: %d", sub);
+		return (sub);
+	}
+	int multi (int num1, int num2)
+	{
+		int multi;
+		multi = num1 * num2;
+		printf ("Tich la: %d", multi);
+		return (multi);
+	}
+	int div (int num1, int num2)
+	{
+		int div;
+		if (num2 != 0)
+		{
+			div = num1 / num2;
+			printf ("Tong la: %d", div);
+			return (div);
+		}
+		else 
+		    {
+			 printf ("Khong hop le!!");
+		    }
+	}
